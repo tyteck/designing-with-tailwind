@@ -19,10 +19,10 @@
         </div>
     </div>
     <div class="hidden lg:block lg:w-1/2">
-        @include('partials.podcast_svg', [ 'cssClass' => 'h-auto w-auto'])
+        @include('svg.podcast_illustration', [ 'cssClass' => 'h-auto w-auto'])
     </div>
 </div>
 <!-- this one is only displayed in small to medium -->
 <div class="block pt-4 lg:hidden">
-    @include('partials.podcast_svg', [ 'cssClass' => 'h-auto w-auto'])
+    @include('svg.podcast_illustration', [ 'cssClass' => 'h-auto w-auto'])
 </div>

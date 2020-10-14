@@ -3,6 +3,6 @@
 
 @section('content')
 
-@include('partials.pricing')
+    @include('partials.pricing')
 
 @endsection

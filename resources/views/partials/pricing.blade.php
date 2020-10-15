@@ -32,9 +32,9 @@
                     <div class="text-center py-4">
                         <span
                             class="inline-flex items-center font-display text-4xl md:text-5xl font-bold text-black mr-2 sm:mr-3">
-                            <span class="text-xl md:text-2xl">&euro;</span><span>9</span>
+                            <span class="text-xl md:text-2xl">&euro;</span><span class="billing-price">9</span>
                         </span>
-                        <span class="text-gray-600">/mo</span>
+                        <span class="text-gray-600 billing-period">/mo</span>
                     </div>
                     <!-- core features -->
                     <div>
@@ -71,9 +71,9 @@
                     <div class="text-center py-4">
                         <span
                             class="inline-flex items-center font-display text-4xl md:text-5xl font-bold text-black mr-2 sm:mr-3">
-                            <span class="text-xl md:text-2xl">&euro;</span><span>29</span>
+                            <span class="text-xl md:text-2xl">&euro;</span><span class="billing-price">29</span>
                         </span>
-                        <span class="text-gray-600">/mo</span>
+                        <span class="text-gray-600 billing-period">/mo</span>
                     </div>
                     <!-- core features -->
                     <div>
@@ -110,9 +110,9 @@
                     <div class="text-center py-4">
                         <span
                             class="inline-flex items-center font-display text-4xl md:text-5xl font-bold text-black mr-2 sm:mr-3">
-                            <span class="text-xl md:text-2xl">&euro;</span><span>79</span>
+                            <span class="text-xl md:text-2xl">&euro;</span><span class="billing-price">79</span>
                         </span>
-                        <span class="text-gray-600">/mo</span>
+                        <span class="text-gray-600 billing-period">/mo</span>
                     </div>
                     <!-- core features -->
                     <div>
@@ -301,6 +301,8 @@
     document.addEventListener("DOMContentLoaded", function(event) {
         const MONTHLY=0;
         const YEARLY=1;
+        const PER_YEAR_LABEL='/yr';
+        const PER_MONTH_LABEL='/mo';
         var monthlyButton=document.getElementById("monthly-button");
         var yearlyButton=document.getElementById("yearly-button");
         monthlyButton.addEventListener("click", monthlyPricing);
@@ -310,11 +312,14 @@
             activate(monthlyButton);
             deactivate(yearlyButton);
             changeLabels(MONTHLY);
+            changePrices(MONTHLY);
         }
+
         function yearlyPricing(){
             activate(yearlyButton);
             deactivate(monthlyButton);
             changeLabels(YEARLY);
+            changePrices(YEARLY);
         }
 
         function activate(element){
@@ -329,13 +334,32 @@
             addClass(element, "text-gray-700");
         }
 
-        function changeLabels(foo){
-            if (foo==YEARLY){
-
-                return true;
+        function changeLabels(periodActivated){
+            var label = PER_MONTH_LABEL;
+            if (periodActivated==YEARLY) {
+                label = PER_YEAR_LABEL;
             }
-            
+            var labelsToChange = document.getElementsByClassName("billing-period");
+            for (index = 0; index < labelsToChange.length; ++index) {
+                labelsToChange[index].innerHTML=label;
+            }
         }
+
+        function changePrices(periodActivated){
+            var pricesToChange = document.getElementsByClassName("billing-price");
+            for (index = 0; index < pricesToChange.length; ++index) {
+                price = parseInt(pricesToChange[index].innerHTML);
+                var newPrice=0;
+                if (periodActivated==YEARLY) {
+                    newPrice=price*10;
+                } else {
+                    newPrice=price/10;
+                }
+                pricesToChange[index].innerHTML=newPrice.toString();
+            }
+            return true;
+        }
+
         function hasClass(element,className) {
             return !!element.className.match(new RegExp('(\\s|^)'+className+'(\\s|$)'));
         }

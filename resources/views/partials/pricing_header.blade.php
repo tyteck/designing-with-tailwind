@@ -13,7 +13,7 @@
             </button>
         </div>
         <div class="text-sm text-gray-600 leading-tight text-center mt-2">
-            12 months for the price of 10 when you pay yearly.
+            Subscribe yearly and get two monthes free.
         </div>
     </div>
 </div>

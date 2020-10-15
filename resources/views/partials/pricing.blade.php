@@ -1,4 +1,4 @@
-<div class="container p-4">
+<div class="container p-4 mx-auto">
     <div class="text-center">
         <h1 class="pt-8 text-2xl text-white tracking-tight font-extrabold lg:text-5xl">
             Podcast hosting pricing
@@ -63,7 +63,7 @@
             <div class="bg-white shadow rounded-lg max-w-md mx-auto lg:min-w-0 relative overflow-hidden">
                 <div class="px-8 py-6 bg-grey-lighter">
                     <h3 class="text-blue-grey-darker uppercase tracking-wide text-lg sm:text-xl text-center font-bold my-0">
-                        Professionnal (29€ - 3 ep/sem)
+                        Professionnal
                     </h3>
                 </div>
                 <div class="px-8 pb-8 text-base md:text-lg">

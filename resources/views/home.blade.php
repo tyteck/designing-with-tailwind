@@ -5,4 +5,6 @@
 
 @include('partials.hero')
 
+@include('partials.promise')
+
 @endsection
